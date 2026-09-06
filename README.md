@@ -1,5 +1,11 @@
 
-# Silakka54 Keymap Design Principles and Specification
+## Here lies all my keyboard configuration
+
+### TODO
+
+- [ ] Move Silakka54 docs to silakka folder, then link to this README
+
+### Silakka54 Keymap Design Principles and Specification
 
 > Status: Current design specification (resolved thumb clusters, layer scheme, and special key behaviors)
 >
@@ -13,7 +19,7 @@
 
 ---
 
-## 1. Motivation
+### 1. Motivation
 
 The Silakka54 represents a transition from a conventional staggered-row US keyboard
 to a compact split/columnar keyboard.
@@ -30,9 +36,9 @@ The design is guided by four principles, referred to here as laws.
 
 ---
 
-## 2. The Four Laws
+### 2. The Four Laws
 
-### 2.1 Topology Conservation
+#### 2.1 Topology Conservation
 
 > Preserve familiar spatial relationships whenever practical.
 
@@ -54,7 +60,7 @@ This principle is not absolute. The Silakka54's reduced key count necessarily re
 
 ---
 
-### 2.2 Priority
+#### 2.2 Priority
 
 > Every physical key position must justify its existence.
 
@@ -72,7 +78,7 @@ The principle is not that low-priority functions are impossible to access. Rathe
 
 ---
 
-### 2.3 Grouping by Function
+#### 2.3 Grouping by Function
 
 > Physically group operations according to their functional role.
 
@@ -95,7 +101,7 @@ These are referred to informally as the "three editing musketeers."
 
 ---
 
-### 2.4 Frequency
+#### 2.4 Frequency
 
 > Within a functional group, physical accessibility should reflect expected steady-state frequency rather than transient observed frequency.
 
@@ -123,13 +129,13 @@ This distinction prevents the keymap from accidentally optimizing around current
 
 ---
 
-## 3. Cluster Terminology
+#### 3. Cluster Terminology
 
 The term **cluster** is adopted as the primary term for a physically contiguous group of keyboard keys that is treated as a coherent functional unit.
 
 This terminology follows the established convention of describing groups of related keyboard keys as clusters, including the terminology used by IBM keyboard designs.
 
-### Definition
+#### Definition
 
 > **Cluster:** A physically contiguous group of keys treated as a coherent functional unit. Cluster membership is determined by physical grouping and/or intended function; keycap legends do not determine membership.
 
@@ -152,9 +158,9 @@ These identities need not coincide. This separation is fundamental to the presen
 
 ---
 
-## 4. Physical Layout
+### 4. Physical Layout
 
-### 4.1 Full Grid
+#### 4.1 Full Grid
 
 | Row | Col 1 | Col 2 | Col 3 | Col 4 | Col 5 | Col 6 | Col 7 | Col 8 | Col 9 | Col 10 | Col 11 | Col 12 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -164,11 +170,11 @@ These identities need not coincide. This separation is fundamental to the presen
 | **R4** | `Shift` | `Z` | `X` | `C` | `V` | `B` | `N` | `M` | `,` / `<` | `.` / `>` | `/` / `?` | `Fn` |
 | **Thumb** | | | | `Ctrl` | `Super` | `Fn` | `Space` | `Backspace` | `Enter` | | | |
 
-## 5. The Editing Cluster (Right Thumb)
+### 5. The Editing Cluster (Right Thumb)
 
 The right-side three-key cluster is the **Editing Cluster**. It is dedicated to fundamental text-entry and text-editing operations.
 
-### 5.1 Base Layer Mapping
+#### 5.1 Base Layer Mapping
 
 | Physical key | Size | Keycap legend | Actual function | Mnemonic |
 |---|---:|---|---|---|
@@ -187,14 +193,14 @@ The physical arrangement is:
 +----------+------+------+
 ```
 
-### 5.2 Shift Behaviors (Base Layer)
+#### 5.2 Shift Behaviors (Base Layer)
 
 - `Shift` + `Space` = `Tab`  
   (Tab is expressed as modified Space; no dedicated Tab key.)
 - `Shift` + `Backspace` = `Delete` (forward delete)  
   (The same key performs backward deletion normally and forward deletion when shifted.)
 
-### 5.3 Layer Behavior (NAV Layer)
+#### 5.3 Layer Behavior (NAV Layer)
 
 When the `NAV` layer is active (via `Fn`):
 
@@ -206,7 +212,7 @@ When the `NAV` layer is active (via `Fn`):
 
 This mapping is mnemonic: Backspace is associated with moving left/back, Enter with ending a line/command. The left-to-right progression mirrors start-to-end navigation.
 
-### 5.4 Justification
+#### 5.4 Justification
 
 The ordering follows multiple laws simultaneously:
 
@@ -231,11 +237,11 @@ The ordering follows multiple laws simultaneously:
 
 ---
 
-## 6. The Modifier Cluster (Left Thumb)
+### 6. The Modifier Cluster (Left Thumb)
 
 The left thumb cluster is the **Modifier Cluster**. Its intended role is control of keyboard/application behavior, as opposed to the right cluster's focus on text manipulation.
 
-### 6.1 Final Allocation
+#### 6.1 Final Allocation
 
 | Position | Function |
 |---|---|
@@ -243,7 +249,7 @@ The left thumb cluster is the **Modifier Cluster**. Its intended role is control
 | Middle | `Super` |
 | Rightmost | `Fn` |
 
-### 6.2 Justification
+#### 6.2 Justification
 
 - **Priority**  
   `Ctrl` and `Super` are the two highest-frequency modifiers in a terminal-heavy, Super-driven window-manager workflow. `Fn` is the layer gateway and must be immediately thumb-accessible. `Alt` is lower priority and is deliberately not given a thumb slot.
@@ -261,9 +267,9 @@ The conventional `Alt` key is omitted from the physical base layer. It can be in
 
 ---
 
-## 7. Special Key Behaviors
+### 7. Special Key Behaviors
 
-### 7.1 Shift (R4C1)
+#### 7.1 Shift (R4C1)
 
 A single left-hand `Shift` key with stateful behavior replaces the conventional duplicate Shift and Caps Lock.
 
@@ -276,11 +282,11 @@ A single left-hand `Shift` key with stateful behavior replaces the conventional 
 
 This provides Caps Lock functionality without a dedicated key, and eliminates the redundant second Shift. The stateful tap/hold/double-tap logic is implemented in QMK with tap-dance or custom key processing.
 
-### 7.2 Escape (R3C1)
+#### 7.2 Escape (R3C1)
 
 A dedicated physical `Esc` key is placed at R3C1 (previously an empty position). This avoids conflicts with modal editors (e.g., Vim) that rely heavily on a reliable, immediate Escape. `Esc` is not overloaded onto `Fn` tap.
 
-### 7.3 Redundant Fn (R4C12)
+#### 7.3 Redundant Fn (R4C12)
 
 A redundant `Fn` key is placed at R4C12 on the right side. This is essential for one-handed right-side layer access, particularly for volume/brightness adjustment on `NAV`/`SYS` layers. Both `Fn` keys behave identically:
 
@@ -289,7 +295,7 @@ A redundant `Fn` key is placed at R4C12 on the right side. This is essential for
 - **Fn + Ctrl** = toggle `NAV` layer
 - **Fn + Super** = momentary `SYS` layer
 
-### 7.4 Dual-Purpose `-` and `=` Keys
+#### 7.4 Dual-Purpose `-` and `=` Keys
 
 The physical keys at R1C11 (`-` / `_`) and R1C12 (`=` / `+`) serve as increment/decrement operations on layers:
 
@@ -300,9 +306,9 @@ This fulfills the requirement that `+`/`-` represent universal increment/decreme
 
 ---
 
-## 8. Layer Scheme
+### 8. Layer Scheme
 
-### 8.1 Layer Summary
+#### 8.1 Layer Summary
 
 | Layer | Activation | Purpose |
 |---|---|---|
@@ -312,7 +318,7 @@ This fulfills the requirement that `+`/`-` represent universal increment/decreme
 | **SYS** (Layer 3) | Hold `Fn`+`Super` | System and media controls |
 | **MOUSE** (Layer 4) | Toggle `SYS`+`M` | Experimental mouse controls |
 
-### 8.2 NAV Layer Mappings
+#### 8.2 NAV Layer Mappings
 
 | Physical Key | Function |
 |---|---|
@@ -338,7 +344,7 @@ This fulfills the requirement that `+`/`-` represent universal increment/decreme
 | `F` | `XF86Forward` |
 | `R` | `XF86Reload` |
 
-### 8.3 SYS Layer Mappings
+#### 8.3 SYS Layer Mappings
 
 | Physical Key | Function |
 |---|---|
@@ -350,13 +356,13 @@ This fulfills the requirement that `+`/`-` represent universal increment/decreme
 
 Brightness controls are intentionally left unassigned until host/Wayland behavior is verified; they can be added without disturbing the core design.
 
-### 8.4 NUM Layer
+#### 8.4 NUM Layer
 
 The `NUM` layer provides a redundant number/symbol arrangement mirroring the physical top row. It is accessed via double-tap on either `Fn`. This layer exists to preserve compatibility if the physical number row is ever removed (e.g., moving to a 40% layout). Toggle off by double-tapping `Fn` again or pressing `Esc`.
 
 ---
 
-## 9. Remaining Open Questions
+### 9. Remaining Open Questions
 
 The following items remain deliberately unspecified, to be resolved after initial use and ergonomic measurement:
 
@@ -371,7 +377,7 @@ These will be decided using the same four laws and empirical feedback.
 
 ---
 
-## 10. Design Status
+### 10. Design Status
 
 The current keymap establishes the following firm principles:
 
