@@ -1,7 +1,4 @@
 
-# 1. Basic
-# 2. Quantum
-# 	QK_MAKE: > m a k e
 TAP_DANCE_ENABLE = yes
 	# https://docs.qmk.fm/features/tap_dance
 	# With this feature one can specify keys that behave differently,

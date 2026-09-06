@@ -1,18 +1,6 @@
-/* Copyright 2024 Juho T. (@Squalius-cephalus)
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
+
+// status: WIP
+// date: 2026-09-06
 
 #pragma once
 
@@ -22,3 +10,23 @@
 
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET
 #define RP2040_BOOTLOADER_DOUBLE_TAP_RESET_LED GP17
+
+
+// ADDED BY ME: ///////////////////////////////////////
+
+// ref
+#define ENABLE_COMPILE_KEYCODE
+
+// https://docs.qmk.fm/features/tap_dance
+#define TAPPING_TERM 175
+#define TAPPING_TERM_PER_KEY
+
+
+// QMK Keycodes
+// Key	Aliases	Description
+// QK_BOOTLOADER	QK_BOOT	Put the keyboard into bootloader mode for flashing
+// QK_DEBUG_TOGGLE	DB_TOGG	Toggle debug mode
+// QK_CLEAR_EEPROM	EE_CLR	Reinitializes the keyboard's EEPROM (persistent memory)
+// QK_MAKE		Sends qmk compile -kb (keyboard) -km (keymap), or qmk flash if shift is held. Puts keyboard into bootloader mode if shift & control are held
+// QK_REBOOT	QK_RBT	Resets the keyboard. Does not load the bootloader
+// WARNING
