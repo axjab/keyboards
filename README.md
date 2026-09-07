@@ -5,6 +5,12 @@
 
 - [ ] Move Silakka54 docs to silakka folder, then link to this README
 
+### Setup
+
+1. Clone github:../qmk to /data/qmk
+2. Replace /data/qmk/keyboards with ~/etc/qmk/keyboards
+3. ?
+
 ### Silakka54 Keymap Design Principles and Specification
 
 > Status: Current design specification (resolved thumb clusters, layer scheme, and special key behaviors)
