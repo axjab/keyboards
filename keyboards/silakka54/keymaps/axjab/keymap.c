@@ -17,17 +17,15 @@
 
 // Tap Dance declarations
 enum {
-    LBRC
+    LBRC, QUOT
 };
 
 // Tap Dance definitions
 tap_dance_action_t tap_dance_actions[] = {
-    // Tap once for Escape, twice for Caps Lock
-    // [TD_ESC_CAPS] = ACTION_TAP_DANCE_DOUBLE(KC_ESC, KC_CAPS),
-    // once for [], twice for ""
+    // once for [{, twice for ]}
     [LBRC] = ACTION_TAP_DANCE_DOUBLE(KC_LBRC, KC_RBRC)
     // once for ', twice for " // NEED MACRO
-    // [TD_QUOT] = ACTION_TAP_DANCE_DOUBLE(KC_QUOT, KC_QUOT)
+    // [QUOT] = NEED ADVANCED TAP DANCE
 };
 
 // Tap Dance functions
@@ -40,13 +38,21 @@ void dance_safety(tap_dance_state_t *state, void *user_data) {
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
+// TODO:
+// escape toggled B,NAV,GUI,MOS -> TD(ESC) or HOLD(ESC)?
+// 
+// pipe = B + ?
+// double quote dance
+// NAV:GUI = tap->hold(GUI)
+// 
+
     // ALPHA
     [0] = LAYOUT(
         KC_0,       KC_1,    KC_2,    KC_3,     KC_4,    KC_5,            KC_6,    KC_7,    KC_8,    KC_9,    KC_MINS,  KC_EQL,
         QK_GESC,    KC_Q,    KC_W,    KC_E,     KC_R,    KC_T,            KC_Y,    KC_U,    KC_I,    KC_O,    KC_P,     TD(LBRC),
-        QK_LEAD,    KC_A,    KC_S,    KC_D,     KC_F,    KC_G,            KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,  TD(QUOT),
-        KC_LSFT,    KC_Z,    KC_X,    KC_C,     KC_V,    KC_B,            KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_RSFT,
-                                      KC_LCTL,  KC_LGUI, LT(2,KC_SPC),    LT(1,KC_SPC),     KC_BSPC, KC_ENT
+        QK_LEAD,    KC_A,    KC_S,    KC_D,     KC_F,    KC_G,            KC_H,    KC_J,    KC_K,    KC_L,    KC_SCLN,  KC_QUOT,
+        KC_LCTL,    KC_Z,    KC_X,    KC_C,     KC_V,    KC_B,            KC_N,    KC_M,    KC_COMM, KC_DOT,  KC_SLSH,  KC_ENT,
+                                      KC_LSFT,  KC_LGUI, LT(2,KC_SPC),    LT(1,KC_SPC),     KC_BSPC, KC_RSFT
         ),
     // BETA
     [1] = LAYOUT(
@@ -61,7 +67,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_NO,  KC_NO,      KC_UP,      KC_NO,      KC_NO,  KC_NO,      KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
         KC_NO,  KC_LEFT,    KC_DOWN,    KC_RGHT,    KC_NO,  KC_NO,      KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
         KC_NO,  KC_NO,      KC_NO,      KC_NO,      KC_NO,  KC_NO,      KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,  KC_NO,
-                                        KC_NO,      KC_NO,  KC_TRNS,    KC_NO,  KC_NO,  KC_NO
+                                        KC_NO,      KC_NO,  KC_TRNS,    KC_TAB,  KC_NO,  KC_NO
     ),
     // GUI
     [3] = LAYOUT(
@@ -105,6 +111,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     )
 
 };
+
+// DOCUMENT:
+// 1. TAB = NAV + KC_SPC
 
 #ifdef OTHER_KEYMAP_C
 #    include OTHER_KEYMAP_C
