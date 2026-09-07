@@ -1,8 +1,12 @@
 
+CAPS_WORD_ENABLE = yes
+LAYER_LOCK_ENABLE = yes
+
 TAP_DANCE_ENABLE = yes
 	# https://docs.qmk.fm/features/tap_dance
 	# With this feature one can specify keys that behave differently,
 	# based on the amount of times they have been tapped
+
 LEADER_ENABLE = yes
 KEY_LOCK_ENABLE = yes
 # LAYER_LOCK_ENABLE = no

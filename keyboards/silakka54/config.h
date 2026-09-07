@@ -17,10 +17,15 @@
 // ref
 #define ENABLE_COMPILE_KEYCODE
 
-// https://docs.qmk.fm/features/tap_dance
-#define TAPPING_TERM 175
-#define TAPPING_TERM_PER_KEY
+// TAP DANCE SECTION ////////////////////////////////////
+// Ref: https://docs.qmk.fm/features/tap_dance
+#define TAPPING_TERM 200
+// #define TAPPING_TERM_PER_KEY
 
+// notes:
+// The TAPPING_TERM_PER_KEY definition is only needed if you control the tapping term through a custom get_tapping_term function, which may be needed because TAPPING_TERM affects not just tap-dance keys.
+
+// TAP DANCE END
 
 // QMK Keycodes
 // Key	Aliases	Description

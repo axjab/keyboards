@@ -9,7 +9,15 @@
 
 1. Clone github:../qmk to /data/qmk
 2. Replace /data/qmk/keyboards with ~/etc/qmk/keyboards
-3. ?
+3. `qmk compile` should now work for any keyboard in ~/etc/qmk/keyboards
+
+#### Flashing
+
+1. Unplug OR RESET the keyboard
+2. Hold left side BOOT button
+3. Plug in the LEFT side of the keyboard
+4. Mount new device (...media?)
+5. `qmk flash`, defaults set to keyboard `silakka54` and keymap `axjab` 
 
 ### Silakka54 Keymap Design Principles and Specification
 

@@ -1,6 +1,3 @@
-Yes. Below are the two separate files. I’ve treated the **latest semantic decisions as authoritative** and removed the obsolete double-tap/Fn+Ctrl/Fn+Super layer scheme.
-
- One implementation note: because I don't have the exact Silakka54 QMK `LAYOUT()` macro from your keyboard's source tree, `keymap.c` uses a conventional 54-key `LAYOUT(...)` call. The semantic/keycode design is complete; if your keyboard's generated layout macro has a different name/order, only that invocation needs adapting.
 
  ### `keymap.c`
 
